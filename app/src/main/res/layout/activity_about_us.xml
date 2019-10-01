@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".aboutUs">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="305dp"
+                android:layout_height="238dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView16"
+                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintStart_toStartOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:srcCompat="@drawable/team" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="201dp"
+                android:layout_height="171dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.457"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="312dp"
+                android:layout_height="216dp"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:text="Currently pursuing computer applications from Maharaja Surajmal Institute, GGSIPU, (Ritika,Lalita,Shreshtha,Aryan and Vishesh ), are social enthusiasts who wish to increase the social impact created by donations for a cause by helping you reach out genuine NGOs nearby."
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/imageView8"
+                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="264dp"
+                android:layout_height="728dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="Have you ever been in a situation where you have old clothes, books, toys, utensils etc piled up in the cupboard and want to donate it instead of throwing it but just can't identify where and how to donate? \n \nHave you ever been in a situation where you want to donate in cash or kind for a cause such as a natural disaster but unable to find a genuine organization?\n\n  Have you ever been in a situation where you want donate but unable to locate NGO's nearby?\n\n  Have you ever been in a situation where you have a lot of books and clothes to donate but missed out on a donation camp held nearby as you didn't receive any update about the same? \n\n Let's Donate is here to help you out. Let's Donate provides an interface between the NGOs or other organizations accepting donations and the common public."
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView7"
+                app:layout_constraintHorizontal_bias="0.507"
+                app:layout_constraintStart_toStartOf="@+id/imageView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Lets Donate"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView7"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="@+id/imageView7"
+                app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
