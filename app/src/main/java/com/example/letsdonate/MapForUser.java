@@ -40,8 +40,8 @@ public class MapForUser extends FragmentActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
-
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},PackageManager.PERMISSION_GRANTED);
     }
 
 
@@ -58,28 +58,21 @@ public class MapForUser extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         user_latlong = new LatLng(28.7041, 77.1025);
-        user_marker = new MarkerOptions().position(user_latlong).title("New Delhi");
+        user_marker = new MarkerOptions().position(user_latlong).title("New delhi");
         mMap.addMarker(user_marker);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(user_latlong));
 
-       /* // To USE GPS
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
         // To Handle the GPS events
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-               user_latlong = new LatLng(location.getLatitude(),location.getLongitude());
-                user_marker.position(user_latlong).title("Your Location");
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(user_latlong));
-
                 mMap.clear();
 
-                user_latlong = new LatLng(28.7041, 77.1025);
-                user_marker = new MarkerOptions().position(user_latlong).title("New Delhi");
+                user_latlong = new LatLng(location.getLatitude(), location.getLongitude());
+                user_marker = new MarkerOptions().position(user_latlong).title("You");
                 mMap.addMarker(user_marker);
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(user_latlong));
-                Toast.makeText(MapForUser.this,location.toString(),Toast.LENGTH_LONG);
+               // mMap.moveCamera(CameraUpdateFactory.newLatLng(user_latlong));
             }
 
             @Override
@@ -89,7 +82,7 @@ public class MapForUser extends FragmentActivity implements OnMapReadyCallback {
 
             @Override
             public void onProviderEnabled(String s) {
-
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(user_latlong));
             }
 
             @Override
@@ -98,49 +91,18 @@ public class MapForUser extends FragmentActivity implements OnMapReadyCallback {
             }
         };
 
-        // Check for User's Permission
 
+        // To USE GPS
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        try {
 
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-                Toast.makeText(MapForUser.this,"2nd if entered ",Toast.LENGTH_LONG);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, locationListener);
 
-            } else {
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-                // Add a marker in New delhi and move the camera
-                user_latlong = new LatLng(28.7041, 77.1025);
-                user_marker = new MarkerOptions().position(user_latlong).title("New Delhi");
-                mMap.addMarker(user_marker);
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(user_latlong));
-                Toast.makeText(MapForUser.this,"else entered ",Toast.LENGTH_LONG);
-
-            }
-            */
-
-
-    }
-/*
-    // to Handle permissions Result
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == 1){
-
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-                    user_latlong = new LatLng(28.7041, 77.1025);
-                    user_marker = new MarkerOptions().position(user_latlong).title("New Delhi");
-                    mMap.addMarker(user_marker);
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(user_latlong));
-                    Toast.makeText(MapForUser.this,"result entered ",Toast.LENGTH_LONG);
-
-                }
-            }
+        } catch (SecurityException ex) {
+            ex.printStackTrace();
         }
 
 
     }
-*/
 
 }
