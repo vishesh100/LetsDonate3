@@ -7,7 +7,7 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NgoSignup"></activity>
+
+        <activity android:name=".NgoSignup" />
         <activity android:name=".UserSignup" />
         <activity android:name=".ForgotPass" />
         <activity android:name=".CreateEvent" />
@@ -42,7 +43,9 @@
         <activity android:name=".Help" />
         <activity android:name=".User_account" />
         <activity android:name=".UserLogin" />
+        <activity android:name=".graph"/>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
