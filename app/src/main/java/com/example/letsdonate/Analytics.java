@@ -37,7 +37,7 @@ public class Analytics extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_graph);
+        setContentView(R.layout.activity_analytics);
 
 
         BarChart chart = (BarChart) findViewById(R.id.barchart);

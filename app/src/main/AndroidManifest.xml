@@ -43,7 +43,6 @@
         <activity android:name=".Help" />
         <activity android:name=".User_account" />
         <activity android:name=".UserLogin" />
-        <activity android:name=".graph"/>
         <activity android:name=".MainActivity">
 
             <intent-filter>
