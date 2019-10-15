@@ -40,7 +40,13 @@ public class Analytics extends AppCompatActivity  {
         setContentView(R.layout.activity_analytics);
 
 
-        BarChart chart = (BarChart) findViewById(R.id.barchart);
+        BarChart chart = (BarChart) findViewById(R.id.barchart1);
+        BarChart chart2=findViewById(R.id.barchart2);
+        BarChart chart3=findViewById(R.id.barchart3);
+        BarChart chart4=findViewById(R.id.barchart4);
+        BarChart chart5=findViewById(R.id.barchart5);
+        BarChart chart6=findViewById(R.id.barchart6);
+
 
         BarDataSet barDataSet1=new BarDataSet(barEntries1(),"\nBooks");
         barDataSet1.setColor(Color.RED);
@@ -78,6 +84,67 @@ public class Analytics extends AppCompatActivity  {
         chart.groupBars(0,groupspace,barspace);
         chart.invalidate();
 
+        //code for 2 GRAPH
+
+        BarDataSet DataSet1=new BarDataSet(entries1(),"\n13-17");
+       DataSet1.setColor(Color.RED);
+        BarDataSet DataSet2=new BarDataSet(entries2(),"\t18-22");
+        DataSet2.setColor(Color.BLUE);
+        BarDataSet DataSet3=new BarDataSet(entries3(),"\t23-40");
+        DataSet3.setColor(Color.MAGENTA);
+        BarDataSet DataSet4=new BarDataSet(entries4(),"\n41-60");
+        DataSet4.setColor(Color.GREEN);
+        BarData data1=new BarData(DataSet1,DataSet2,DataSet3,DataSet4);
+        chart2.setData(data1);
+        XAxis axis2=chart2.getXAxis();
+        axis2.setValueFormatter(new IndexAxisValueFormatter(area));
+        axis2.setCenterAxisLabels(true);
+        axis2.setPosition(XAxis.XAxisPosition.BOTTOM);
+        axis2.setGranularity(1);
+        axis2.setGranularityEnabled(true);
+        chart2.setDragEnabled(true);
+        chart2.setVisibleXRangeMaximum(3);
+
+        float barspace2=0.0f;
+        float groupspace2=0.6f;
+        data.setBarWidth(0.12f);
+        chart2.getXAxis().setAxisMinimum(0);
+        chart2.getXAxis().setAxisMaximum(0+chart.getBarData().getGroupWidth(groupspace2,barspace2)*9);
+        chart2.getAxisLeft().setAxisMinimum(0);
+        chart2.getDescription().setEnabled(false);
+        chart2.groupBars(0,groupspace2,barspace2);
+        chart2.invalidate();
+
+        //code for 3 graph
+
+        BarDataSet Set1=new BarDataSet(entry1(),"\nPickup");
+        Set1.setColor(Color.RED);
+        BarDataSet Set2=new BarDataSet(entry2(),"\tDonation");
+        Set2.setColor(Color.BLUE);
+        BarDataSet Set3=new BarDataSet(entry3(),"\tTOtal");
+        Set3.setColor(Color.MAGENTA);
+
+        BarData data3=new BarData(Set1,Set2,Set3);
+        chart3.setData(data1);
+        XAxis axis3=chart3.getXAxis();
+        axis3.setValueFormatter(new IndexAxisValueFormatter(area));
+        axis3.setCenterAxisLabels(true);
+        axis3.setPosition(XAxis.XAxisPosition.BOTTOM);
+        axis3.setGranularity(1);
+        axis3.setGranularityEnabled(true);
+        chart3.setDragEnabled(true);
+        chart3.setVisibleXRangeMaximum(3);
+
+        float barspace3=0.04f;
+        float groupspace3=0.7f;
+        data.setBarWidth(0.06f);
+        chart3.getXAxis().setAxisMinimum(0);
+        chart3.getXAxis().setAxisMaximum(0+chart.getBarData().getGroupWidth(groupspace3,barspace3)*9);
+        chart3.getAxisLeft().setAxisMinimum(0);
+        chart3.getDescription().setEnabled(false);
+        chart3.groupBars(0,groupspace3,barspace3);
+        chart3.invalidate();
+
 
 
 
@@ -94,9 +161,6 @@ public class Analytics extends AppCompatActivity  {
         barEntries.add(new BarEntry(6,15));
         barEntries.add(new BarEntry(7,18));
         return barEntries;
-
-
-
     }
 
     private  ArrayList<BarEntry> barEntries2() {
@@ -110,10 +174,7 @@ public class Analytics extends AppCompatActivity  {
         barEntries.add(new BarEntry(7,3));
         barEntries.add(new BarEntry(1,6));
         barEntries.add(new BarEntry(2,25));
-
         return barEntries;
-
-
 
     }
     private  ArrayList<BarEntry> barEntries3() {
@@ -183,6 +244,124 @@ public class Analytics extends AppCompatActivity  {
 
 
     }
+     private ArrayList<BarEntry> entries1()
+     {
+         ArrayList<BarEntry>   barEntries=new ArrayList<>();
+         barEntries.add(new BarEntry(1,0));
+         barEntries.add(new BarEntry(2,0));
+         barEntries.add(new BarEntry(3,0));
+         barEntries.add(new BarEntry(4,0));
+         barEntries.add(new BarEntry(5,0));
+         barEntries.add(new BarEntry(6,0));
+         barEntries.add(new BarEntry(7,1));
+         barEntries.add(new BarEntry(4,1));
+         barEntries.add(new BarEntry(5,0));
+         return barEntries;
+
+
+     }
+
+    private ArrayList<BarEntry> entries2()
+    {
+        ArrayList<BarEntry>   barEntries=new ArrayList<>();
+        barEntries.add(new BarEntry(1,1));
+        barEntries.add(new BarEntry(2,5));
+        barEntries.add(new BarEntry(3,9));
+        barEntries.add(new BarEntry(4,3));
+        barEntries.add(new BarEntry(5,4));
+        barEntries.add(new BarEntry(6,5));
+        barEntries.add(new BarEntry(7,7));
+        barEntries.add(new BarEntry(4,20));
+        barEntries.add(new BarEntry(5,24));
+        return barEntries;
+
+
+    }
+
+    private ArrayList<BarEntry> entries3()
+    {
+        ArrayList<BarEntry>   barEntries=new ArrayList<>();
+        barEntries.add(new BarEntry(1,1));
+        barEntries.add(new BarEntry(2,1));
+        barEntries.add(new BarEntry(3,0));
+        barEntries.add(new BarEntry(4,0));
+        barEntries.add(new BarEntry(5,0));
+        barEntries.add(new BarEntry(6,0));
+        barEntries.add(new BarEntry(7,1));
+        barEntries.add(new BarEntry(4,2));
+        barEntries.add(new BarEntry(5,2));
+        return barEntries;
+
+
+    }
+
+    private ArrayList<BarEntry> entries4()
+    {
+        ArrayList<BarEntry>   barEntries=new ArrayList<>();
+        barEntries.add(new BarEntry(1,0));
+        barEntries.add(new BarEntry(2,1));
+        barEntries.add(new BarEntry(3,0));
+        barEntries.add(new BarEntry(4,0));
+        barEntries.add(new BarEntry(5,2));
+        barEntries.add(new BarEntry(6,0));
+        barEntries.add(new BarEntry(7,0));
+        barEntries.add(new BarEntry(4,2));
+        barEntries.add(new BarEntry(5,4));
+        return barEntries;
+
+
+    }
+    private ArrayList<BarEntry> entry1()
+    {
+        ArrayList<BarEntry>   barEntries1=new ArrayList<>();
+        barEntries1.add(new BarEntry(1,0));
+        barEntries1.add(new BarEntry(2,3));
+        barEntries1.add(new BarEntry(3,1));
+        barEntries1.add(new BarEntry(4,2));
+        barEntries1.add(new BarEntry(5,2));
+        barEntries1.add(new BarEntry(6,2));
+        barEntries1.add(new BarEntry(7,3));
+        barEntries1.add(new BarEntry(4,6));
+        barEntries1.add(new BarEntry(5,5));
+        return barEntries1;
+
+
+    }
+
+    private ArrayList<BarEntry> entry2()
+    {
+        ArrayList<BarEntry>   barEntries1=new ArrayList<>();
+        barEntries1.add(new BarEntry(1,1));
+        barEntries1.add(new BarEntry(2,2));
+        barEntries1.add(new BarEntry(3,5));
+        barEntries1.add(new BarEntry(4,0));
+        barEntries1.add(new BarEntry(5,2));
+        barEntries1.add(new BarEntry(6,1));
+        barEntries1.add(new BarEntry(7,0));
+        barEntries1.add(new BarEntry(4,4));
+        barEntries1.add(new BarEntry(5,8));
+        return barEntries1;
+
+
+    }
+
+    private ArrayList<BarEntry> entry3()
+    {
+        ArrayList<BarEntry>   barEntries=new ArrayList<>();
+        barEntries.add(new BarEntry(1,1));
+        barEntries.add(new BarEntry(2,2));
+        barEntries.add(new BarEntry(3,3));
+        barEntries.add(new BarEntry(4,1));
+        barEntries.add(new BarEntry(5,2));
+        barEntries.add(new BarEntry(6,2));
+        barEntries.add(new BarEntry(7,6));
+        barEntries.add(new BarEntry(4,15));
+        barEntries.add(new BarEntry(5,17));
+        return barEntries;
+
+
+    }
+
 
 
 }
